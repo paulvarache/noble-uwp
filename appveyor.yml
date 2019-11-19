@@ -51,8 +51,8 @@ build_script:
         node-gyp -v
         npm install --ignore-scripts 2>&1 | write-host
         if ($LASTEXITCODE -NE 0) { throw "Failed building $module"; }
-        ./node_modules/.bin/node-pre-gyp rebuild --runtime=electron --target=3.0.1 --arch=x64 --dist-url=https://electronjs.org/headers
-        ./node_modules/.bin/node-pre-gyp package 2>&1 | write-host
+        ./node_modules/.bin/node-pre-gyp rebuild --runtime=electron --target=3.1.0 --arch=x64 --dist-url=https://electronjs.org/headers
+        ./node_modules/.bin/node-pre-gyp package --runtime=electron --target=3.1.0 --arch=x64 --dist-url=https://electronjs.org/headers 2>&1 | write-host
         if ($LASTEXITCODE -NE 0) { throw "Failed packaging $module"; }
         if ($publish_binary -Eq "1") {
           node-pre-gyp-github publish --release 2>&1 | write-host

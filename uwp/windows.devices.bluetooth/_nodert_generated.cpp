@@ -6537,7 +6537,7 @@ NAN_MODULE_INIT(init)
     return;
   }*/
 
-  // (jasongin) Hand-patched generated code due to Bluetooth bug in 15063
+  // (paulvarache) Hand-patched generated code due to Bluetooth bug in 15063
   InitializeSecurity();
 
   NodeRT::Windows::Devices::Bluetooth::InitBluetoothCacheModeEnum(target);

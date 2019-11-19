@@ -14,18 +14,18 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/jasongin/noble-uwp.git"
+		"url": "git+https://github.com/paulvarache/noble-uwp.git"
 	},
 	"keywords": [
 		"bluetooth",
 		"BLE"
 	],
-	"author": "jasongin <jasongin@microsoft.com>",
+	"author": "paulvarache <paulvarache@microsoft.com>",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/jasongin/noble-uwp/issues"
+		"url": "https://github.com/paulvarache/noble-uwp/issues"
 	},
-	"homepage": "https://github.com/jasongin/noble-uwp#readme",
+	"homepage": "https://github.com/paulvarache/noble-uwp#readme",
 	"dependencies": {
 		"debug": "^2.6.0",
 		"noble": "^1.7.0"

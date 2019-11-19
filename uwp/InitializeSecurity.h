@@ -1,4 +1,4 @@
-  // (jasongin) Workaround Bluetooth bug in 15063
+  // (paulvarache) Workaround Bluetooth bug in 15063
 
 #include <sddl.h>
 
