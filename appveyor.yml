@@ -20,6 +20,7 @@ environment:
       npm_config_target_arch: 'x64'
       npm_config_disturl: https://electronjs.org/headers
       npm_config_target: '3.1.0'
+      platform: x64
 
 install:
   # install the right node version
