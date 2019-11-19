@@ -5,18 +5,18 @@ environment:
   GYP_MSVS_VERSION: 2015
 
   matrix:
-    - node_version: '8'
-      runtime: node
-      dist_url: https://nodejs.org/dist
-      target: 8
-    - node_version: '10'
-      runtime: node
-      dist_url: https://nodejs.org/dist
-      target: 10
+    # - node_version: '8'
+    #   runtime: node
+    #   dist_url: https://nodejs.org/dist
+    #   target: 57
+    # - node_version: '10'
+    #   runtime: node
+    #   dist_url: https://nodejs.org/dist
+    #   target: 64
     - node_version: '10'
       runtime: electron
       dist_url: https://atom.io/download/electron
-      target: 3.1
+      target: '3.1.0'
 
 install:
   # install the right node version
