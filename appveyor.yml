@@ -14,11 +14,6 @@ environment:
     #   dist_url: https://nodejs.org/dist
     #   target: 64
     - node_version: '10'
-      npm_config_build_from_source: true
-      npm_config_runtime: electron
-      npm_config_arch: 'x64'
-      npm_config_disturl: https://electronjs.org/headers
-      npm_config_target: '3.1.0'
       platform: x64
 
 install:
@@ -26,7 +21,7 @@ install:
   - ps: Install-Product node $env:node_version $env:platform
   - ps: echo "running node $env:node_version on $env:platform"
   - ps: | 
-        cmd /c "npm install -g node-gyp node-pre-gyp-github npm-windows-upgrade 2>&1"
+        cmd /c "npm install -g node-pre-gyp node-gyp node-pre-gyp-github npm-windows-upgrade 2>&1"
         if ($LASTEXITCODE -NE 0) { throw "Failed installing node-gyp node-pre-gyp-github npm-windows-upgrade"; }
   # update npm and node-gyp, some configurations wont build without an up to date node-gyp
   - ps: npm-windows-upgrade --npm-version latest
@@ -54,8 +49,9 @@ build_script:
         echo "============================== start building $module =============================="
         Convert-Path .
         node-gyp -v
-        npm install 2>&1 | write-host
+        npm install --ignore-scripts 2>&1 | write-host
         if ($LASTEXITCODE -NE 0) { throw "Failed building $module"; }
+        ./node_modules/.bin/node-pre-gyp rebuild --runtime=electron --target=3.0.1 --arch=x64 --dist-url=https://electronjs.org/headers
         ./node_modules/.bin/node-pre-gyp package 2>&1 | write-host
         if ($LASTEXITCODE -NE 0) { throw "Failed packaging $module"; }
         if ($publish_binary -Eq "1") {
