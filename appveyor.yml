@@ -15,7 +15,7 @@ environment:
     #   target: 64
     - node_version: '10'
       runtime: electron
-      dist_url: https://atom.io/download/electron
+      dist_url: https://electronjs.org/headers
       target: '3.1.0'
 
 install:
@@ -51,7 +51,7 @@ build_script:
         echo "============================== start building $module =============================="
         Convert-Path .
         node-gyp -v
-        npm install --build-from-source --arch=$env:platform --target_arch=$env:platform --runtime=$env:runtime --dist-url=$env:dist_url --target=$env:target 2>&1 | write-host
+        npm install --build-from-source --arch=x64 --target_arch=x64 --runtime=$env:runtime --dist-url=$env:dist_url --target=$env:target 2>&1 | write-host
         if ($LASTEXITCODE -NE 0) { throw "Failed building $module"; }
         ./node_modules/.bin/node-pre-gyp package 2>&1 | write-host
         if ($LASTEXITCODE -NE 0) { throw "Failed packaging $module"; }
